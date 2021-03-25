@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostViewComponent implements OnInit {
 
+  //A dummy comment
   constructor() { }
 
   ngOnInit(): void {
