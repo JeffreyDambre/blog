@@ -1,0 +1,13 @@
+<li [ngClass]="listItemClass">
+  <div>
+    <h3>{{title}}</h3>
+    <p>{{content}}</p>
+    <p>status: {{status}}</p>
+    <p>index: {{index}}</p>
+    <p>{{myDate | date: 'short'}}</p>
+    <button class="btn btn-success" type="button" (click)="onLike()">Like it!</button>
+    <button class="btn btn-danger" type="button" (click)="onDislike()">Don't like it!</button>
+    <button class="btn" type="button" (click)="onSwitchOn()" [disabled]="status === 'allumé'">On</button>
+    <button class="btn" type="button" (click)="onSwitchOff()" [disabled]="status === 'éteint'">Off</button>
+  </div>
+</li>
