@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {PostListItemService} from '../services/postListItem.service';
 
 @Component({
   selector: 'app-post-view',
@@ -7,10 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostViewComponent implements OnInit {
 
-  //A dummy comment
-  constructor() { }
+  items:any[];
 
-  ngOnInit(): void {
+  constructor(private myService:PostListItemService) {
+  }
+
+  ngOnInit() {
+    //let items be defined by service
+    this.items = this.myService.items;
+  }
+
+  onSwitchOn(){
+    this.myService.switchOnAll();
+  }
+
+  onSwitchOff(){
+    this.myService.switchOffAll();
   }
 
 }

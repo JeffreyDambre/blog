@@ -1,4 +1,4 @@
-import {Component, OnInit} from "@angular/core";
+import {Component} from "@angular/core";
 import {PostListItemService} from "./services/postListItem.service";
 
 @Component({
@@ -6,25 +6,12 @@ import {PostListItemService} from "./services/postListItem.service";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
-
-  items:any[];
+export class AppComponent {
 
   constructor(private myService:PostListItemService) {
   }
 
-  ngOnInit() {
-    //let items be defined by service
-    this.items = this.myService.items;
-  }
-
-  onSwitchOn(){
-    this.myService.switchOnAll();
-  }
-
-  onSwitchOff(){
-    this.myService.switchOffAll();
-  }
-
   title = 'blog';
+
+  isAuth = false;
 }

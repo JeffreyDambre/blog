@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from "@angular/core";
+import {AuthService} from "../services/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-auth',
@@ -7,9 +9,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthComponent implements OnInit {
 
-  constructor() { }
+  // statut local. Il faut l'initialiser, puis le faire evoluer en fct de l'appel aux services d'authentification
+  authStatus:boolean;
 
-  ngOnInit(): void {
+  //Le mot clef "private" est essentiel pour l'injection du service!
+  //On remarque qu'il n'y a pas à faire une copie du service dans une variable locale.
+  constructor(private authService:AuthService, private router:Router) {
+  }
+
+  ngOnInit():void {
+    this.authStatus = this.authService.isAuth;
+  }
+
+  onSignIn() {
+    this.authService.signIn().then(
+      ()=> {
+        console.log('connexion réussie');
+        this.authStatus = this.authService.isAuth;
+        this.router.navigate(['appareils']);
+      }
+    )
+  }
+
+  onSignOut() {
+    this.authService.signOut();
+    this.authStatus = this.authService.isAuth;
   }
 
 }
