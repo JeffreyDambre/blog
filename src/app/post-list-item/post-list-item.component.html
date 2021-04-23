@@ -9,5 +9,6 @@
     <button class="btn btn-danger" type="button" (click)="onDislike()">Don't like it!</button>
     <button class="btn" type="button" (click)="onSwitchOn()" [disabled]="status === 'allumé'">On</button>
     <button class="btn" type="button" (click)="onSwitchOff()" [disabled]="status === 'éteint'">Off</button>
+    <a [routerLink]="[id]">Détail</a>
   </div>
 </li>

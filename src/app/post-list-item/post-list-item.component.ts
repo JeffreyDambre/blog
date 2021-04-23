@@ -12,6 +12,7 @@ export class PostListItemComponent implements OnInit {
   @Input() content:string;
   @Input() status:string;
   @Input() index:number;
+  @Input() id:number;
   listItemClass = '';
   myDate = new Date();
   onLike(){

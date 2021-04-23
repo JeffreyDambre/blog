@@ -12,8 +12,11 @@ export class AuthComponent implements OnInit {
   // statut local. Il faut l'initialiser, puis le faire evoluer en fct de l'appel aux services d'authentification
   authStatus:boolean;
 
-  //Le mot clef "private" est essentiel pour l'injection du service!
-  //On remarque qu'il n'y a pas à faire une copie du service dans une variable locale.
+  //Le mot-clef private est un cas de "parameter property". C'est un raccourci.
+  // class { constructor(private s:S){} }
+  // is a shorthand for
+  // class { private s: S; constructor(s: S) {this.s = s} }
+  // On remarque donc qu'il n'y a pas à faire une copie du service dans une variable locale, c'est fait automatiquement
   constructor(private authService:AuthService, private router:Router) {
   }
 
