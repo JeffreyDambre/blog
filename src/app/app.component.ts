@@ -1,5 +1,6 @@
 import {Component} from "@angular/core";
 import {PostListItemService} from "./services/postListItem.service";
+import {Observable} from "rxjs/Observable";
 
 @Component({
   selector: 'app-root',

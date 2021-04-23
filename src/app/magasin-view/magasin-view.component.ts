@@ -2,11 +2,11 @@ import {Component, OnInit} from '@angular/core';
 import {PostListItemService} from '../services/postListItem.service';
 
 @Component({
-  selector: 'app-post-view',
-  templateUrl: './post-view.component.html',
-  styleUrls: ['./post-view.component.scss']
+  selector: 'app-magasin-view',
+  templateUrl: './magasin-view.component.html',
+  styleUrls: ['./magasin-view.component.scss']
 })
-export class PostViewComponent implements OnInit {
+export class MagasinViewComponent implements OnInit {
 
   items:any[];
 

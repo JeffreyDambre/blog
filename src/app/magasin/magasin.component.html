@@ -1,0 +1,5 @@
+<div>
+  <ul class="list-group">
+    <app-appareil *ngFor="let item of items; let i = index" [title]="item.title" [content]="item.content" [status]="item.status" [index]="i" [id]="item.id" ></app-appareil>
+  </ul>
+</div>

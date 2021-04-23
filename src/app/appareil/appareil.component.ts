@@ -2,11 +2,11 @@ import {Component, OnInit, Input} from "@angular/core";
 import {PostListItemService} from "../services/postListItem.service"
 
 @Component({
-  selector: 'app-post-list-item',
-  templateUrl: './post-list-item.component.html',
-  styleUrls: ['./post-list-item.component.scss']
+  selector: 'app-appareil',
+  templateUrl: './appareil.component.html',
+  styleUrls: ['./appareil.component.scss']
 })
-export class PostListItemComponent implements OnInit {
+export class AppareilComponent implements OnInit {
 
   @Input() title:string;
   @Input() content:string;
