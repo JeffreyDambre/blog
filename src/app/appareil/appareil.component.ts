@@ -1,5 +1,5 @@
 import {Component, OnInit, Input} from "@angular/core";
-import {PostListItemService} from "../services/postListItem.service"
+import {AppareilService} from "../services/appareil.service";
 
 @Component({
   selector: 'app-appareil',
@@ -15,27 +15,29 @@ export class AppareilComponent implements OnInit {
   @Input() id:number;
   listItemClass = '';
   myDate = new Date();
-  onLike(){
+
+  onLike() {
     console.log('onLike title=%s', this.title);
     this.listItemClass = 'list-group-item-success';
   }
-  onDislike(){
+
+  onDislike() {
     console.log('dislike title=%s', this.title);
     this.listItemClass = 'list-group-item-danger';
   }
 
-  constructor(private postListItemService: PostListItemService) {
+  constructor(private appareilService:AppareilService) {
   }
 
   ngOnInit():void {
   }
 
-  onSwitchOn(){
-    this.postListItemService.switchOn(this.index);
+  onSwitchOn() {
+    this.appareilService.switchOn(this.index);
   }
 
-  onSwitchOff(){
-    this.postListItemService.switchOff(this.index);
+  onSwitchOff() {
+    this.appareilService.switchOff(this.index);
   }
 
 }

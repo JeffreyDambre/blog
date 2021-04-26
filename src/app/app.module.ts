@@ -4,7 +4,7 @@ import {Routes, RouterModule} from "@angular/router";
 import {AppComponent} from "./app.component";
 import {MagasinComponent} from "./magasin/magasin.component";
 import {AppareilComponent} from "./appareil/appareil.component";
-import {PostListItemService} from "./services/postListItem.service";
+import {AppareilService} from "./services/appareil.service";
 import {AuthComponent} from "./auth/auth.component";
 import {MagasinViewComponent} from "./magasin-view/magasin-view.component";
 import {AuthService} from "./services/auth.service";
@@ -39,7 +39,7 @@ var appRoutes:Routes = <Routes>[
     BrowserModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [PostListItemService, AuthService, AuthGuard],
+  providers: [AppareilService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {

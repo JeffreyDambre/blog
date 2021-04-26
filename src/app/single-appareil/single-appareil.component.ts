@@ -1,5 +1,5 @@
 import {Component, OnInit} from "@angular/core";
-import {PostListItemService} from "../services/postListItem.service";
+import {AppareilService} from "../services/appareil.service";
 import {ActivatedRoute} from "@angular/router";
 
 @Component({
@@ -12,12 +12,12 @@ export class SingleAppareilComponent implements OnInit {
   name:string = 'Appareil par défaut';
   status:string = 'Statut par défaut';
 
-  constructor(private postListItemService:PostListItemService, private route:ActivatedRoute) {
+  constructor(private appareilService:AppareilService, private route:ActivatedRoute) {
   }
 
   ngOnInit():void {
     const id = this.route.snapshot.params['id'];
-    var item = this.postListItemService.findItemById(0 + id);
+    var item = this.appareilService.findItemById(0 + id);
     this.name = item.title;
     this.status= item.status;
   }

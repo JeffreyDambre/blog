@@ -12,12 +12,15 @@ export class AuthComponent implements OnInit {
   // statut local. Il faut l'initialiser, puis le faire evoluer en fct de l'appel aux services d'authentification
   authStatus:boolean;
 
+  connecting:boolean;
+
   //Le mot-clef private est un cas de "parameter property". C'est un raccourci.
   // class { constructor(private s:S){} }
   // is a shorthand for
   // class { private s: S; constructor(s: S) {this.s = s} }
   // On remarque donc qu'il n'y a pas à faire une copie du service dans une variable locale, c'est fait automatiquement
   constructor(private authService:AuthService, private router:Router) {
+    this.connecting=false;
   }
 
   ngOnInit():void {
@@ -25,11 +28,14 @@ export class AuthComponent implements OnInit {
   }
 
   onSignIn() {
+    console.log('onSignIn');
+    this.connecting=true;
     this.authService.signIn().then(
       ()=> {
         console.log('connexion réussie');
         this.authStatus = this.authService.isAuth;
         this.router.navigate(['appareils']);
+        this.connecting=false;
       }
     )
   }
