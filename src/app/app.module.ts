@@ -1,5 +1,6 @@
 import {BrowserModule} from "@angular/platform-browser";
 import {NgModule} from "@angular/core";
+import {FormsModule} from "@angular/forms";
 import {Routes, RouterModule} from "@angular/router";
 import {AppComponent} from "./app.component";
 import {MagasinComponent} from "./magasin/magasin.component";
@@ -11,12 +12,14 @@ import {AuthService} from "./services/auth.service";
 import {SingleAppareilComponent} from "./single-appareil/single-appareil.component";
 import {FourOhFourComponent} from './four-oh-four/four-oh-four.component';
 import {AuthGuard} from "./services/auth-guard.service";
+import {EditAppareilComponent} from './edit-appareil/edit-appareil.component';
 
 
 //Ce point diffère du tuto. Il faut ce cast (<Routes>) pour que l'atelier accepte appRoutes comme un parametre valide de RouterModule.forRoot
 var appRoutes:Routes = <Routes>[
   {path: 'appareils', canActivate: [AuthGuard], component: MagasinViewComponent},
   {path: 'appareils/:id', canActivate: [AuthGuard], component: SingleAppareilComponent},
+  {path: 'edit', canActivate: [AuthGuard], component: EditAppareilComponent},
   {path: 'auth', component: AuthComponent},
   {path: '', component: MagasinViewComponent},
   {path: 'not-found', component: FourOhFourComponent},
@@ -24,7 +27,7 @@ var appRoutes:Routes = <Routes>[
 ];
 //L'ordre des elements du array est important !
 
-
+ 
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,10 +36,12 @@ var appRoutes:Routes = <Routes>[
     AuthComponent,
     MagasinViewComponent,
     SingleAppareilComponent,
-    FourOhFourComponent
+    FourOhFourComponent,
+    EditAppareilComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [AppareilService, AuthService, AuthGuard],

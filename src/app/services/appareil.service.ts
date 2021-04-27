@@ -60,4 +60,23 @@ export class AppareilService {
   findItemById(id:number) {
     return this.items.find((item) => item.id == id);
   }
+
+  addAppareil(name:string, status:string) {
+    const appareilObject = {
+      id: 0,
+      title: '',
+      content: 'to be defined',
+      status: ''
+    };
+
+    appareilObject.title = name;
+    appareilObject.status = status;
+
+    const lastItemIndex = this.items.length - 1;
+    const lastItemId = this.items[lastItemIndex].id;
+    appareilObject.id = lastItemId + 1;
+
+    this.items.push(appareilObject);
+    this.emitAppareilSubject();
+  }
 }

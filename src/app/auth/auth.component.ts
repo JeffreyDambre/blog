@@ -20,11 +20,11 @@ export class AuthComponent implements OnInit {
   // class { private s: S; constructor(s: S) {this.s = s} }
   // On remarque donc qu'il n'y a pas à faire une copie du service dans une variable locale, c'est fait automatiquement
   constructor(private authService:AuthService, private router:Router) {
-    this.connecting=false;
   }
 
   ngOnInit():void {
     this.authStatus = this.authService.isAuth;
+    this.connecting=false;
   }
 
   onSignIn() {
